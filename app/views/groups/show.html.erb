@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Icon:</strong>
-  <%= @group.icon %>
+  <strong>Image:</strong>
+  <%= link_to @group.image.filename, @group.image if @group.image.attached? %>
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
