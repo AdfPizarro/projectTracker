@@ -1,0 +1,2 @@
+class LogGroup < ApplicationRecord
+end

@@ -1,7 +1,7 @@
 class CreateTimeLogs < ActiveRecord::Migration[6.0]
   def change
     create_table :time_logs do |t|
-      t.string :author_id
+      t.references :user, null: false, index: true, foreign_key: { to_table: :users }
       t.string :name
       t.string :minutes
 
