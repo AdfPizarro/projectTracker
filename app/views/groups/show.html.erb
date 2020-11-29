@@ -7,7 +7,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= link_to @group.image.filename, @group.image if @group.image.attached? %>
+  <td><%= image_tag @group.image, :size => "200x200" %></td>
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
