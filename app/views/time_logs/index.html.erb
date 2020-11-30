@@ -15,7 +15,7 @@
   <tbody>
     <% @time_logs.each do |time_log| %>
       <tr>
-        <td><%= time_log.author_id %></td>
+        <td><%= time_log.user.username %></td>
         <td><%= time_log.name %></td>
         <td><%= time_log.minutes %></td>
         <td><%= link_to 'Show', time_log %></td>

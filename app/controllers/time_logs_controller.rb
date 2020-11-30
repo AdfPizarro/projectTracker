@@ -25,7 +25,7 @@ class TimeLogsController < ApplicationController
   # POST /time_logs.json
   def create
     @time_log = TimeLog.new(time_log_params)
-
+    @time_log.user_id=current_user.id
     respond_to do |format|
       if @time_log.save
         format.html { redirect_to @time_log, notice: 'Time log was successfully created.' }
