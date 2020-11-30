@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    @time_logs = current_user.time_logs
   end
 
   # GET /groups/1
