@@ -1,9 +1,8 @@
-class CreateLogGroups < ActiveRecord::Migration[6.0]
+class CreateGroupsTimeLogs < ActiveRecord::Migration[6.0]
   def change
-    create_table :log_groups do |t|
+    create_table :groups_time_logs do |t|
      t.references :time_log, foreign_key: true
      t.references :group, foreign_key: true
-     t.timestamps
     end
   end
 end
