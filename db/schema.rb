@@ -42,12 +42,12 @@ ActiveRecord::Schema.define(version: 2020_11_29_031128) do
   end
 
   create_table "log_groups", force: :cascade do |t|
-    t.integer "log_id"
+    t.integer "time_log_id"
     t.integer "group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_log_groups_on_group_id"
-    t.index ["log_id"], name: "index_log_groups_on_log_id"
+    t.index ["time_log_id"], name: "index_log_groups_on_time_log_id"
   end
 
   create_table "time_logs", force: :cascade do |t|
@@ -75,6 +75,6 @@ ActiveRecord::Schema.define(version: 2020_11_29_031128) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "groups", "users", column: "creator_id"
   add_foreign_key "log_groups", "groups"
-  add_foreign_key "log_groups", "logs"
+  add_foreign_key "log_groups", "time_logs"
   add_foreign_key "time_logs", "users"
 end
