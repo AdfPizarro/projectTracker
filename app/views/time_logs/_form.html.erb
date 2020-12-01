@@ -21,6 +21,18 @@
     <%= form.text_field :minutes %>
   </div>
 
+  <div class="field">
+      <%= form.label "Groups" %><br>
+      <% @groups.each do |group| %>
+        <span class="mr-2">
+          <%= image_tag group.image, :size => "100x100" %>
+          <%= form.check_box("groups", {:multiple => true}, group.id, nil) %>
+          <label><%= h group.name -%></label><label>
+         
+        </span>
+      <% end %>
+    </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

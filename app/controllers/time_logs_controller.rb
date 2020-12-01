@@ -15,6 +15,7 @@ class TimeLogsController < ApplicationController
   # GET /time_logs/new
   def new
     @time_log = TimeLog.new
+    @groups=Group.all
   end
 
   # GET /time_logs/1/edit
@@ -24,6 +25,7 @@ class TimeLogsController < ApplicationController
   # POST /time_logs
   # POST /time_logs.json
   def create
+    p @time_log
     @time_log = TimeLog.new(time_log_params)
     @time_log.user_id=current_user.id
     respond_to do |format|
@@ -69,6 +71,6 @@ class TimeLogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def time_log_params
-      params.require(:time_log).permit(:author_id, :name, :minutes)
+      params.require(:time_log).permit(:author_id, :name, :minutes, :groups)
     end
 end
