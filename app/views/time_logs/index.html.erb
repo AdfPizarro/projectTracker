@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Group</th>
       <th>Author</th>
       <th>Name</th>
       <th>Minutes</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @time_logs.each do |time_log| %>
       <tr>
+        <td><%= image_tag time_log.groups.first.image, :size => "100x100" %></td>
         <td><%= time_log.user.username %></td>
         <td><%= time_log.name %></td>
         <td><%= time_log.minutes %></td>

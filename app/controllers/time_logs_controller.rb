@@ -25,9 +25,11 @@ class TimeLogsController < ApplicationController
   # POST /time_logs
   # POST /time_logs.json
   def create
-    p @time_log
-    @time_log = TimeLog.new(time_log_params)
-    @time_log.user_id=current_user.id
+    @time_log = current_user.time_logs.new
+    @time_log.groups=Group.where(id: time_log_params[:groups])
+    @time_log.name=time_log_params[:name]
+    @time_log.minutes=time_log_params[:minutes]
+    
     respond_to do |format|
       if @time_log.save
         format.html { redirect_to @time_log, notice: 'Time log was successfully created.' }
@@ -71,6 +73,6 @@ class TimeLogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def time_log_params
-      params.require(:time_log).permit(:author_id, :name, :minutes, :groups)
+      params.require(:time_log).permit(:author_id, :name, :minutes, groups: [])
     end
 end
