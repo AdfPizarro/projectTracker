@@ -18,7 +18,11 @@
   <tbody>
     <% @time_logs.each do |time_log| %>
       <tr>
+        <% if !time_log.groups.first.nil? %>
         <td><%= image_tag time_log.groups.first.image, :size => "100x100" %></td>
+      <% else %>
+        <td><%= image_tag "no.png", :size => "100x100" %></td>
+      <% end %>
         <td><%= time_log.user.username %></td>
         <td><%= time_log.name %></td>
         <td><%= time_log.minutes %></td>

@@ -4,7 +4,7 @@ class TimeLogsController < ApplicationController
   # GET /time_logs
   # GET /time_logs.json
   def index
-    @time_logs = current_user.time_logs
+    @time_logs = current_user.time_logs.includes(:groups).where.not( groups: { id: nil } ).order(created_at: :desc)
     @total=current_user.time_logs.sum(:minutes)
   end
 
