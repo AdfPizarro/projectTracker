@@ -13,8 +13,8 @@
 
 
  <ul class="link_list_profile center">
-   <li><%= image_tag "logs.png", :class =>"center" %><span class="list_text">All my logs</span></li>
-   <li><%= image_tag "external.png", :class =>"center" %>All my external logs</li>
+   <li><%= image_tag "logs.png", :class =>"center" %><%= link_to "All my logs", time_logs_path, :class => 'navbar-link'  %></li>
+   <li><%= image_tag "external.png", :class =>"center" %><%= link_to "All my external logs", ext_logs_path, :class => 'navbar-link'  %></li>
    <li><%= image_tag "groups.png", :class =>"center" %><%= link_to "All groups", groups_path, :class => 'navbar-link'  %></li>
    <li><%= image_tag "exit.png", :class =>"center" %><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
  </ul>
