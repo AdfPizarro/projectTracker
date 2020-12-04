@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+
+body {
+  font-family: 'Oxygen', sans-serif;
+  margin: 0;
+}
+h1{
+ margin: 0;
+}
+a{
+  text-decoration: none;
+}
+
+.welcome{
+  text-align: center;
+}
+.contianer_profile{
+  background-color: #3778c2;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.center{
+  margin: auto;
+}
+.link_list_profile{
+list-style: none;
+padding: 0;
+}
+.list_text{
+  margin-bottom:50px;
+}

@@ -4,7 +4,8 @@ class TimeLogsController < ApplicationController
   # GET /time_logs
   # GET /time_logs.json
   def index
-    @time_logs = TimeLog.all
+    @time_logs = current_user.time_logs
+    @total=current_user.time_logs.sum(:minutes)
   end
 
   # GET /time_logs/1
@@ -29,7 +30,7 @@ class TimeLogsController < ApplicationController
     @time_log.groups=Group.where(id: time_log_params[:groups])
     @time_log.name=time_log_params[:name]
     @time_log.minutes=time_log_params[:minutes]
-    
+
     respond_to do |format|
       if @time_log.save
         format.html { redirect_to @time_log, notice: 'Time log was successfully created.' }

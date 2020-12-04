@@ -1,30 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="contianer_profile">
+ <%= image_tag "journal.png", :class =>"center" %>
 
-<h1>Profile</h1>
-<%= link_to 'New Log', new_time_log_path %>
-<%= link_to 'New Group', new_group_path %>
-<h2>All my saved logs</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Author</th>
-      <th>Name</th>
-      <th>Minutes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @time_logs.each do |time_log| %>
-      <tr>
-        <td><%= time_log.user.username %></td>
-        <td><%= time_log.name %></td>
-        <td><%= time_log.minutes %></td>
-        <td><%= link_to 'Show', time_log %></td>
-        <td><%= link_to 'Edit', edit_time_log_path(time_log) %></td>
-        <td><%= link_to 'Destroy', time_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% if user_signed_in? %>
+      <h1 class="center"><%= current_user.username %></h1>
 
+
+  <% end %>
+
+
+ <ul class="link_list_profile center">
+   <li><%= image_tag "logs.png", :class =>"center" %><span class="list_text">All my logs</span></li>
+   <li><%= image_tag "external.png", :class =>"center" %>All my external logs</li>
+   <li><%= image_tag "groups.png", :class =>"center" %><%= link_to "All groups", groups_path, :class => 'navbar-link'  %></li>
+   <li><%= image_tag "exit.png", :class =>"center" %><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+ </ul>
+
+
+
+</div>
