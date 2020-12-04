@@ -26,41 +26,36 @@
 
 <p id="notice"><%= notice %></p>
 
+<div class="logs_container">
+
+</div>
+<% @time_logs.each do |time_log| %>
+  <div class="log">
+   <div class="log_info">
+     <div class="img">
+       <% if !time_log.groups.first.nil? %>
+       <%= image_tag time_log.groups.first.image, :size => "75x75" %>
+     <% else %>
+       <%= image_tag "no.png", :size => "100x100" %>
+     <% end %>
+     </div>
+     <div class="info">
+       <div class="name">
+         <%= time_log.name %>
+       </div>
+       <div class="date">
+         <%= time_log.created_at.strftime("%B %d, %Y") %>
+       </div>
+     </div>
+   </div>
+
+   <div class="time">
+     <%= time_log.minutes %>
+   </div>
+  </div>
+<% end %>
 
 
 
-
-<span>Total time spent </span>
-<table>
-  <thead>
-    <tr>
-      <th>Group</th>
-      <th>Author</th>
-      <th>Name</th>
-      <th>Minutes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @time_logs.each do |time_log| %>
-      <tr>
-        <% if !time_log.groups.first.nil? %>
-        <td><%= image_tag time_log.groups.first.image, :size => "100x100" %></td>
-      <% else %>
-        <td><%= image_tag "no.png", :size => "100x100" %></td>
-      <% end %>
-        <td><%= time_log.user.username %></td>
-        <td><%= time_log.name %></td>
-        <td><%= time_log.minutes %></td>
-        <td><%= link_to 'Show', time_log %></td>
-        <td><%= link_to 'Edit', edit_time_log_path(time_log) %></td>
-        <td><%= link_to 'Destroy', time_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <%= link_to 'New Time Log', new_time_log_path %>

@@ -48,8 +48,6 @@ padding: 0;
 }
 .header{
   background-color: #3778c2;
-
-
 }
 .title_bar{
   display: flex;
@@ -60,12 +58,42 @@ padding: 0;
 .total_container{
   display: flex;
   justify-content: space-between;
+  border-bottom: solid 2px gray;
+  padding: 10px 0;
 }
-
 .total_number, .total_word{
-  padding:0px 40px;
+  padding:0px 15px;
 }
-
 .total_number{
   font-weight: bold;
+}
+.logs_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.log{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  margin: 10px;
+  padding-bottom: 5px;
+
+}
+.log_info{
+  display: flex;
+  align-items: flex-end;
+
+}
+.info{
+  margin-left: 10px;
+
+}
+.name{
+padding-bottom: 20px;
+}
+.date{
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 5px;
 }

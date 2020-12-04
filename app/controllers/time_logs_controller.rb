@@ -83,8 +83,8 @@ class TimeLogsController < ApplicationController
     end
 
     def time_conversion(minutes)
-    hours = minutes / 60
-    rest = minutes % 60
-    return "#{hours} Hours #{rest} Minutes"
-end
+      hours = minutes / 60
+      rest = minutes % 60
+      return "#{hours} Hours #{rest} Minutes"
+    end
 end
