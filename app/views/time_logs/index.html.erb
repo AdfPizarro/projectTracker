@@ -1,9 +1,36 @@
+<div class="header">
+  <div class="title_bar">
+    <div class="">
+      <%= image_tag "menu.png", :size => "28x28" %>
+    </div>
+    <div class="">
+      <h1 class="page_title">My time Logs</h1>
+    </div>
+    <div class="">
+      <%= image_tag "exit.png", :size => "28x28" %>
+    </div>
+
+  </div>
+</div>
+
+<div class="total_container">
+  <div class="total_word">
+    <span>Total</span>
+  </div>
+
+
+ <div class=total_number>
+   <%= @total %>
+ </div>
+</div>
+
 <p id="notice"><%= notice %></p>
 
-<h1>All my Time Logs</h1>
 
 
-<span>Total time spent <%= @total %></span>
+
+
+<span>Total time spent </span>
 <table>
   <thead>
     <tr>

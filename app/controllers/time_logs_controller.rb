@@ -5,7 +5,7 @@ class TimeLogsController < ApplicationController
   # GET /time_logs.json
   def index
     @time_logs = current_user.time_logs.includes(:groups).where.not( groups: { id: nil } ).order(created_at: :desc)
-    @total=@time_logs.sum(:minutes)
+    @total=time_conversion(@time_logs.sum(:minutes).to_i)
   end
 
   def ext_logs
@@ -81,4 +81,10 @@ class TimeLogsController < ApplicationController
     def time_log_params
       params.require(:time_log).permit(:author_id, :name, :minutes, groups: [])
     end
+
+    def time_conversion(minutes)
+    hours = minutes / 60
+    rest = minutes % 60
+    return "#{hours} Hours #{rest} Minutes"
+end
 end
