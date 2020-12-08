@@ -21,9 +21,11 @@ body {
 }
 h1{
  margin: 0;
+ color: white;
 }
 a{
   text-decoration: none;
+  color: white;
 }
 
 .welcome{
@@ -42,6 +44,7 @@ a{
 .link_list_profile{
 list-style: none;
 padding: 0;
+  margin-left: 20px;
 }
 .list_text{
   margin-bottom:50px;
@@ -99,4 +102,25 @@ padding-bottom: 20px;
 }
 .menu_icon{
  size: 50px;
+}
+.link_list_profile li {
+ display: flex;
+
+}
+.link_list_profile li div{
+ border-bottom: solid 1px white;
+ width: 100%;
+ margin-left: 5px;
+ padding-bottom: 20px;
+ margin-bottom: 10px;
+}
+.link_list_profile li img{
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 6px;
+  margin-top: 10px;
+}
+.navbar-link{
+  vertical-align: middle;
+  padding-top: 25px;
 }
