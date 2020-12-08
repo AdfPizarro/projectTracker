@@ -2,17 +2,19 @@
   <div class="title_bar">
     <div class="">
       <%= link_to image_tag( "menu.svg", :class => "menu_icon"), root_path %>
-
     </div>
     <div class="">
-      <h1 class="page_title">My time Logs</h1>
+      <h1 class="page_title">My Logs</h1>
     </div>
     <div class="">
-      <%= image_tag "exit.svg" %>
+      <%= image_tag "exit.svg", :class => "menu_icon" %>
     </div>
 
   </div>
 </div>
+<div class="content">
+
+
 
 <div class="total_container">
   <div class="total_word">
@@ -24,38 +26,45 @@
    <%= @total %>
  </div>
 </div>
-
-<p id="notice"><%= notice %></p>
-
-<div class="logs_container">
+<div class="line">
 
 </div>
-<% @time_logs.each do |time_log| %>
-  <div class="log">
-   <div class="log_info">
-     <div class="img">
-       <% if !time_log.groups.first.nil? %>
-       <%= image_tag time_log.groups.first.image, :size => "75x75" %>
-     <% else %>
-       <%= image_tag "no.png", :size => "100x100" %>
-     <% end %>
-     </div>
-     <div class="info">
-       <div class="name">
-         <%= time_log.name %>
-       </div>
-       <div class="date">
-         <%= time_log.created_at.strftime("%B %d, %Y") %>
-       </div>
-     </div>
-   </div>
 
-   <div class="time">
-     <%= time_log.minutes %>
-   </div>
-  </div>
-<% end %>
+<div class="create">
+  <%= link_to "Add log", new_time_log_path, :class => "create_link" %>
+</div>
 
+
+<div class="logs_container">
+  <% @time_logs.each do |time_log| %>
+    <div class="log">
+     <div class="log_info">
+       <div class="img">
+         <% if !time_log.groups.first.nil? %>
+         <%= image_tag time_log.groups.first.image, :size => "80x80" %>
+       <% else %>
+         <%= image_tag "no.png", :size => "110x100" %>
+       <% end %>
+       </div>
+       <div class="info">
+         <div class="name">
+           <%= time_log.name %>
+         </div>
+         <div class="date">
+           <%= time_log.created_at.strftime("%B %d, %Y") %>
+         </div>
+       </div>
+     </div>
+
+     <div class="time">
+       <%= time_log.minutes %>
+       Minutes
+     </div>
+    </div>
+  <% end %>
+</div>
+
+</div>
 
 
 
