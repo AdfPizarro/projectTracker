@@ -1,5 +1,11 @@
 <div class="contianer_profile">
-  <div class="">
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  <div class="center">
     <%= image_tag "journal.png", :class =>"center" %>
   </div>
 
