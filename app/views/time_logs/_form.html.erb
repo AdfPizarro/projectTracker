@@ -12,28 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: "Activity name"  %>
   </div>
 
   <div class="field">
-    <%= form.label :minutes %>
-    <%= form.text_field :minutes %>
+    <%= form.number_field :minutes , placeholder: "Time in minutes" %>
   </div>
+  <br>
+  <span>Groups (You can select many groups, if you don't select any will be saved in your personal logs)</span>
+  <div class="group_list">
 
-  <div class="field">
-      <%= form.label "Groups" %><br>
       <% @groups.each do |group| %>
-        <span class="mr-2">
-          <%= image_tag group.image, :size => "100x100" %>
-          <%= form.check_box("groups", {:multiple => true}, group.id, nil) %>
-          <label><%= h group.name -%></label><label>
-         
-        </span>
+        <div class="group">
+          <div class="">
+            <%= image_tag group.image, :size => "100x100" %>
+          </div>
+          <div class="">
+            <%= form.check_box("groups", {:multiple => true}, group.id, nil) %>
+            <label><%= h group.name -%></label><label>
+          </div>
+
+        </div>
+
       <% end %>
     </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit  "Save" %>
   </div>
 <% end %>

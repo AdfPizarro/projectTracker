@@ -1,5 +1,20 @@
-<h1>New Time Log</h1>
+<div class="header">
+  <div class="title_bar">
+    <div class="">
+      <%= link_to image_tag( "back.svg", :class => "menu_icon"), time_logs_path %>
+    </div>
+    <div class="">
+      <h1 class="page_title">Add log</h1>
+    </div>
+    <div class="">
+      <%= image_tag "exit.svg", :class => "menu_icon" %>
+    </div>
 
-<%= render 'form', time_log: @time_log %>
+  </div>
+</div>
+<div class="content">
+  <div class="form_container">
+    <%= render 'form', time_log: @time_log %>
+  </div>
 
-<%= link_to 'Back', time_logs_path %>
+</div>

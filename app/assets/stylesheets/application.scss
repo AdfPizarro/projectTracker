@@ -165,3 +165,47 @@ padding-bottom: 20px;
   color: #344f6a;
   padding: 5px 15px;
 }
+.form_container{
+  background-color: white;
+  margin: 10px 0px;
+  box-shadow: 2px 2px 1px 1px #ccc;
+}
+input{
+  border: none;
+  border-bottom: #959595 solid 1px;
+}
+form{
+  padding: 15px;
+}
+.field{
+ display: flex;
+ justify-content: space-between;
+}
+.actions{
+  display: flex;
+  justify-content: center;
+}
+.field input{
+  width: 100%;
+  margin-bottom: 10px;
+  padding-left: 4px;
+  font-size: 16px;
+}
+
+.actions input{
+  border: solid 1px #ccc;
+  border-radius: 4px;
+  padding: 5px 8px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: white;
+
+}
+.group_list{
+  display: flex;
+}
+.group{
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
