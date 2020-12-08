@@ -1,28 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div class="header">
+  <div class="title_bar">
+    <div class="">
+      <%= link_to image_tag( "menu.svg", :class => "menu_icon"), root_path %>
+    </div>
+    <div class="">
+      <h1 class="page_title">All groups</h1>
+    </div>
+    <div class="">
+      <%= image_tag "exit.svg", :class => "menu_icon" %>
+    </div>
 
-<h1>Groups</h1>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="create">
+  <%= link_to "Create group", new_group_path, :class => "create_link" %>
+</div>
 
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= group.name %></td>
-        <td><%= image_tag group.image, :size => "100x100" %></td>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="content">
+
+    <div class="groups_container">
+      <% @groups.each do |group| %>
+        <%= link_to group do %>
+        <div class="group">
+         <div class="log_info">
+           <div class="img">
+             <%= image_tag group.image, :size => "80x80" %>
+           </div>
+           <div class="info">
+             <div class="name">
+               <%= group.name %>
+             </div>
+             <div class="date">
+               Created on: <%= group.created_at.strftime("%B %d, %Y") %>
+             </div>
+           </div>
+         </div>
+
+         <div class="time">
+
+         </div>
+        </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>
+
+
 
 <br>
 
