@@ -1,14 +1,59 @@
-<p id="notice"><%= notice %></p>
+<div class="header">
+  <div class="title_bar">
+    <div class="">
+      <%= link_to image_tag( "back.svg", :class => "menu_icon"), groups_path %>
+    </div>
+    <div class="">
+      <h1 class="page_title"><%= @group.name %></h1>
+    </div>
+    <div class="">
+      <%= image_tag "exit.svg", :class => "menu_icon" %>
+    </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+  </div>
+</div>
 
-<p>
-  <strong>Image:</strong>
+
+
+
   <td><%= image_tag @group.image, :size => "200x200" %></td>
-</p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+
+  <div class="create">
+    <%= link_to "Add log", new_time_log_path, :class => "create_link" %>
+  </div>
+
+
+  <div class="logs_container">
+    <% @logs.each do |time_log| %>
+      <div class="log">
+       <div class="log_info">
+         <div class="img">
+           <% if !time_log.groups.first.nil? %>
+           <%= image_tag time_log.groups.first.image, :size => "80x80" %>
+         <% else %>
+           <%= image_tag "no.png", :size => "110x100" %>
+         <% end %>
+         </div>
+         <div class="info">
+           <div class="name">
+             <%= time_log.name %>
+           </div>
+           <div class="date">
+             <%= time_log.created_at.strftime("%B %d, %Y") %>
+           </div>
+         </div>
+       </div>
+
+       <div class="time">
+         <%= time_log.minutes %>
+         Minutes
+       </div>
+      </div>
+    <% end %>
+  </div>
+
+  </div>
+
+
+<%= link_to 'Edit', edit_group_path(@group) %>

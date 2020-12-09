@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @logs=@group.time_logs.order('created_at DESC')
   end
 
   # GET /groups/new
