@@ -27,7 +27,7 @@
           <div class="">
             <%= image_tag group.image, :size => "100x100" %>
           </div>
-          <div class="">
+          <div>
             <%= form.check_box("groups", {:multiple => true}, group.id, nil) %>
             <label><%= h group.name -%></label><label>
           </div>

@@ -12,11 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name , placeholder: "Group name" %>
   </div>
 
-  <div class="field">
+  <div class="form_img_select">
     <%= form.label :image %>
     <%= form.file_field :image %>
   </div>

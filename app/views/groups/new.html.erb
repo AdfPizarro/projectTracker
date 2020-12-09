@@ -1,5 +1,21 @@
-<h1>New Group</h1>
+<div class="header">
+  <div class="title_bar">
+    <div class="">
+      <%= link_to image_tag( "back.svg", :class => "menu_icon"), groups_path %>
+    </div>
+    <div class="">
+      <h1 class="page_title">Create group</h1>
+    </div>
+    <div class="">
+      <%= image_tag "exit.svg", :class => "menu_icon" %>
+    </div>
 
-<%= render 'form', group: @group %>
+  </div>
+</div>
 
-<%= link_to 'Back', groups_path %>
+<div class="content">
+  <div class="form_container">
+    <%= render 'form', group: @group %>
+  </div>
+
+</div>
