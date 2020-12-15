@@ -38,11 +38,7 @@
     <div class="log">
      <div class="log_info">
        <div class="img">
-         <% if !time_log.groups.first.nil? %>
          <%= image_tag time_log.groups.first.image, :size => "80x80" %>
-       <% else %>
-         <%= image_tag "no.png", :size => "110x100" %>
-       <% end %>
        </div>
        <div class="info">
          <div class="name">

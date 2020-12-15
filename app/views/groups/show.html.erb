@@ -12,29 +12,28 @@
 
   </div>
 </div>
+<div class="create">
+  <%= link_to "Add log", new_time_log_path, :class => "create_link" %>
+</div>
 
 
+  <div class="show_group_img">
+    <div class="">
+      <%= image_tag @group.image, :size => "200x200" %>
+    </div>
 
-
-  <td><%= image_tag @group.image, :size => "200x200" %></td>
-
-
-  <div class="create">
-    <%= link_to "Add log", new_time_log_path, :class => "create_link" %>
   </div>
+
+
+
+
 
 
   <div class="logs_container">
     <% @logs.each do |time_log| %>
       <div class="log">
        <div class="log_info">
-         <div class="img">
-           <% if !time_log.groups.first.nil? %>
-           <%= image_tag time_log.groups.first.image, :size => "80x80" %>
-         <% else %>
-           <%= image_tag "no.png", :size => "110x100" %>
-         <% end %>
-         </div>
+         <%= time_log.user.username %>
          <div class="info">
            <div class="name">
              <%= time_log.name %>
@@ -54,6 +53,3 @@
   </div>
 
   </div>
-
-
-<%= link_to 'Edit', edit_group_path(@group) %>

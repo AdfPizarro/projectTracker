@@ -207,6 +207,7 @@ form{
 }
 .group_list{
   display: flex;
+  flex-direction: column;
 }
 .form_group{
   display: flex;
@@ -215,4 +216,10 @@ form{
 }
 .form_img_select input{
   border: none;
+}
+
+.show_group_img{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
