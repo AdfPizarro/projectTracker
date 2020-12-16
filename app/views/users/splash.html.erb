@@ -1,0 +1,46 @@
+<div class="contianer_profile">
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  <div class="center">
+    <%= image_tag "journal.png", :class =>"center" %>
+  </div>
+
+
+
+  <% if user_signed_in? %>
+      <h1 class="center"><%= current_user.username %></h1>
+
+
+  <% end %>
+
+
+ <ul class="link_list_profile">
+   <li><%= image_tag "logs.svg" , :class =>"center"%>
+      <div>
+        <%= link_to "My group logs", time_logs_path, :class => 'navbar-link'  %>
+      </div>
+   </li>
+   <li><%= image_tag "external.svg" , :class =>"center"%>
+      <div>
+        <%= link_to "My personal logs", ext_logs_path, :class => 'navbar-link'  %>
+      </div>
+   </li>
+   <li><%= image_tag "groups.svg", :class =>"center" %>
+      <div>
+        <%= link_to "All groups", groups_path, :class => 'navbar-link'  %>
+      </div>
+   </li>
+   <li><%= image_tag "exit.svg", :class =>"center" %>
+      <div>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      </div>
+   </li>
+ </ul>
+
+
+
+</div>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authenticate_user!, only: [:splash]
   # GET /groups
   # GET /groups.json
   def index
@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+  end
+
+  def splash
   end
 
   # GET /groups/new
