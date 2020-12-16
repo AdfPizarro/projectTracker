@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: [:splash]
   # GET /groups
   # GET /groups.json
@@ -9,11 +9,9 @@ class UsersController < ApplicationController
 
   # GET /groups/1
   # GET /groups/1.json
-  def show
-  end
+  def show; end
 
-  def splash
-  end
+  def splash; end
 
   # GET /groups/new
   def new
@@ -21,14 +19,13 @@ class UsersController < ApplicationController
   end
 
   # GET /groups/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /groups
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-    @group.creator_id=current_user.id
+    @group.creator_id = current_user.id
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
@@ -65,13 +62,14 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = Group.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def group_params
-      params.require(:group).permit(:name, :image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def group_params
+    params.require(:group).permit(:name, :image)
+  end
 end

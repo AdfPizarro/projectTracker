@@ -1,1 +1,1 @@
-json.partial! "time_logs/time_log", time_log: @time_log
+json.partial! 'time_logs/time_log', time_log: @time_log
