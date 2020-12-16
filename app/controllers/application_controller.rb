@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
  before_action :authenticate_user!
-
+ skip_before_action :authenticate_user!, if: :devise_controller?
  before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   if user_signed_in?
     super
   else
-    redirect_to splash_path#, :notice => 'if you want to add a notice'
+    redirect_to splash_path
     ## if you want render 404 page
     ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
   end

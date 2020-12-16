@@ -14,6 +14,7 @@
  *= require_self
  */
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
 body {
   font-family: 'Oxygen', sans-serif;
@@ -222,4 +223,42 @@ form{
   display: flex;
   justify-content: center;
   margin-top: 10px;
+}
+
+.splash_title{
+  margin-top: 20px;
+  font-family: 'Dancing Script', cursive;
+  color: #363e49;
+  text-align: center;
+  font-size: 40px;
+}
+.splash_container{
+  background-color: #f1f3f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+.splash_buttons{
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+}
+
+.splash_button{
+  text-align: center;
+  color: white;
+  background-color:blue;
+  padding: 13px;
+    margin-top: 4px;
+  border-radius: 4px;
+}
+.splash_blue{
+  background-color: #3979c3;
+}
+.splash_white{
+  background-color: #f1f3f2;
+  color: #75797c;
 }
