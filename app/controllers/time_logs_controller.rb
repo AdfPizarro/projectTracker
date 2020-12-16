@@ -33,7 +33,7 @@ class TimeLogsController < ApplicationController
     @time_log.groups = Group.where(id: time_log_params[:groups])
     @time_log.name = time_log_params[:name]
     @time_log.minutes = time_log_params[:minutes]
-
+    @groups = Group.all
     respond_to do |format|
       if @time_log.save
         format.html { redirect_to @time_log, notice: 'Time log was successfully created.' }
