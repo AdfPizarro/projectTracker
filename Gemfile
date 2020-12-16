@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
+
 gem 'devise'
 gem 'paperclip', '~> 5.1'
 gem 'rubocop', '~>0.81.0'
@@ -45,13 +46,14 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+group :production do
+  gem 'pg'
 end
 
+group :test do
+  gem 'capybara', '~> 3.33'
+  gem 'rspec'
+  gem 'selenium-webdriver'
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
