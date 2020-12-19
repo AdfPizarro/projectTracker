@@ -10,7 +10,7 @@ class TimeLogsController < ApplicationController
 
   def ext_logs
     @time_logs = current_user.time_logs.includes(:groups).where(groups: { id: nil }).order(created_at: :desc)
-    @total = @time_logs.sum(:minutes)
+    @total = @time_logs.sum(:minutes).to_i
   end
 
   # GET /time_logs/1
