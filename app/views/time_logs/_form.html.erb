@@ -1,0 +1,43 @@
+<%= form_with(model: time_log, local: true) do |form| %>
+  <% if time_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(time_log.errors.count, "error") %> prohibited this time_log from being saved:</h2>
+
+      <ul>
+        <% time_log.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :name, placeholder: "Activity name"  %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :minutes , placeholder: "Time in minutes" %>
+  </div>
+  <br>
+  <span>Groups (You can select many groups, if you don't select any will be saved in your personal logs)</span>
+  <div class="group_list">
+
+      <% @groups.each do |group| %>
+        <div class="form_group">
+          <div class="">
+            <%= image_tag group.image, :size => "100x100" %>
+          </div>
+          <div>
+            <%= form.check_box("groups", {:multiple => true}, group.id, nil) %>
+            <label><%= h group.name -%></label><label>
+          </div>
+
+        </div>
+
+      <% end %>
+    </div>
+
+  <div class="actions">
+    <%= form.submit  "Save" %>
+  </div>
+<% end %>

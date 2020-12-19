@@ -1,0 +1,53 @@
+<div class="header">
+  <div class="title_bar">
+    <div class="">
+      <%= link_to image_tag( "back.svg", :class => "menu_icon"), groups_path %>
+    </div>
+    <div class="">
+      <h1 class="page_title"><%= @group.name %></h1>
+    </div>
+    <div class="">
+      <%= image_tag "exit.svg", :class => "menu_icon" %>
+    </div>
+
+  </div>
+</div>
+<div class="create">
+  <%= link_to "Add log", new_time_log_path, :class => "create_link" %>
+</div>
+
+
+  <div class="show_group_img">
+    <div class="">
+      <%= image_tag @group.image, :size => "200x200" %>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <div class="logs_container">
+    <% @logs.each do |time_log| %>
+      <div class="log">
+       <div class="log_info">
+         <%= time_log.user.username %>
+         <div class="info">
+           <div class="name">
+             <%= time_log.name %>
+           </div>
+           <div class="date">
+             <%= time_log.created_at.strftime("%B %d, %Y") %>
+           </div>
+         </div>
+       </div>
+
+       <div class="time">
+         <%= time_log.minutes %>
+         Minutes
+       </div>
+      </div>
+    <% end %>
+  </div>

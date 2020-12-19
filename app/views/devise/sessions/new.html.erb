@@ -1,0 +1,39 @@
+<div class="header">
+  <div class="title_bar">
+    <div class="">
+      <%= link_to image_tag( "back.svg", :class => "menu_icon"), groups_path %>
+    </div>
+    <div class="">
+      <h1 class="page_title">Log in</h1>
+    </div>
+    <div class="">
+      <%= image_tag "exit.svg", :class => "menu_icon" %>
+    </div>
+
+  </div>
+</div>
+
+<div class="content">
+  <div class="form_container">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.text_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password"  %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+    <% end %>
+  </div>
+</div>
