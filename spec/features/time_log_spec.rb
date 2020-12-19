@@ -21,11 +21,10 @@ describe 'Capybara time logs', type: :feature do
     click_button 'Log in'
     visit 'groups/new'
     fill_in 'group_name', with: 'Fry group'
-    attach_file("group_image", Rails.root + "spec/img/bender.jpeg")
+    attach_file('group_image', Rails.root + 'spec/img/bender.jpeg')
     click_button 'commit'
     visit '/'
     click_link 'Logout'
-
   end
 
   describe 'Create logs' do
@@ -36,7 +35,6 @@ describe 'Capybara time logs', type: :feature do
       fill_in 'Password', with: '123456'
       click_button 'Log in'
     end
-
 
     it 'Display username on login' do
       visit '/'
@@ -51,7 +49,7 @@ describe 'Capybara time logs', type: :feature do
     it 'Create a new group (upload image)' do
       visit 'groups/new'
       fill_in 'group_name', with: 'Bender group'
-      attach_file("group_image", Rails.root + "spec/img/bender.jpeg")
+      attach_file('group_image', Rails.root + 'spec/img/bender.jpeg')
       click_button 'commit'
       expect(page).to have_content 'Bender group'
     end
@@ -72,8 +70,5 @@ describe 'Capybara time logs', type: :feature do
       click_button 'commit'
       expect(page).to have_content 'Time log was successfully created.'
     end
-
-
-
   end
 end

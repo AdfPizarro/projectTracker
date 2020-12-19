@@ -1,19 +1,47 @@
-<p id="notice"><%= notice %></p>
+<div class="header">
+  <div class="title_bar">
+    <div class="">
+      <%= link_to image_tag( "back.svg", :class => "menu_icon"), groups_path %>
+    </div>
+    <div class="">
+      <h1 class="page_title">Log Created</h1>
+    </div>
+    <div class="">
+      <%= image_tag "exit.svg", :class => "menu_icon" %>
+    </div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @time_log.user.username %>
-</p>
+  </div>
+</div>
+<div class="create">
+  <%= link_to "Add log", new_time_log_path, :class => "create_link" %>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @time_log.name %>
-</p>
 
-<p>
-  <strong>Minutes:</strong>
-  <%= @time_log.minutes %>
-</p>
 
-<%= link_to 'Edit', edit_time_log_path(@time_log) %> |
-<%= link_to 'Back', time_logs_path %>
+
+  <div class="logs_container">
+      <div class="log">
+       <div class="log_info">
+         <div class="img">
+       <% if !@time_log.groups.first.nil? %>
+       <%= image_tag @time_log.groups.first.image, :size => "80x80" %>
+     <% else %>
+       <%= image_tag "no.png", :size => "80x80" %>
+     <% end %>
+     </div>
+         <div class="info">
+           <div class="name">
+             <%= @time_log.name %>
+           </div>
+           <div class="date">
+             <%= @time_log.created_at.strftime("%B %d, %Y") %>
+           </div>
+         </div>
+       </div>
+
+       <div class="time">
+         <%= @time_log.minutes %>
+         Minutes
+       </div>
+      </div>
+  </div>
