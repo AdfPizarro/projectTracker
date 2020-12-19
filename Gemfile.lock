@@ -264,7 +264,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootsnap (>= 1.1.0)
+  bootsnap
   byebug
   capybara (~> 3.33)
   devise
