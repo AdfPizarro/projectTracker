@@ -16,7 +16,7 @@
 ## Live version
 
 You can view the live version here
-https://ror-soc.herokuapp.com/
+https://pt324.herokuapp.com/
 
 ## Getting Started
 
