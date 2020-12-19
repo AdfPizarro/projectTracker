@@ -3,7 +3,7 @@ class CreateTimeLogs < ActiveRecord::Migration[6.0]
     create_table :time_logs do |t|
       t.references :user, null: false, index: true, foreign_key: { to_table: :users }
       t.string :name
-      t.string :minutes
+      t.integer :minutes
 
       t.timestamps
     end

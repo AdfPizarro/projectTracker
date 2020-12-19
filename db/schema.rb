@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_171829) do
   create_table "time_logs", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name"
-    t.string "minutes"
+    t.integer "minutes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_time_logs_on_user_id"
