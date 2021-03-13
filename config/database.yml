@@ -15,8 +15,8 @@
 # gem 'pg'
 #
 default: &default
-  #adapter: postgresql
-  adapter: sqlite3
+  adapter: postgresql
+  #adapter: sqlite3
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
