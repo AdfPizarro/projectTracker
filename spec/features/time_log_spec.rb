@@ -56,10 +56,10 @@ describe 'Capybara time logs', type: :feature do
 
     it 'Create a personal log' do
       visit '/time_logs/new'
-      fill_in 'time_log_name', with: 'Takeing a nap'
+      fill_in 'time_log_name', with: 'Taking a nap'
       fill_in 'time_log_minutes', with: '15'
       click_button 'commit'
-      expect(page).to have_content 'Time log was successfully created.'
+      expect(page).to have_content 'Log Created'
     end
 
     it 'Create a log in a group' do
@@ -68,7 +68,7 @@ describe 'Capybara time logs', type: :feature do
       fill_in 'time_log_minutes', with: '120'
       check 'time_log_groups_1'
       click_button 'commit'
-      expect(page).to have_content 'Time log was successfully created.'
+      expect(page).to have_content 'Log Created'
     end
   end
 end
