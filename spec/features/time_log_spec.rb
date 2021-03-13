@@ -71,4 +71,15 @@ describe 'Capybara time logs', type: :feature do
       expect(page).to have_content 'Log Created'
     end
   end
+
+  describe 'Login' do
+    it 'Display error message on wrong login' do
+      visit 'splash'
+      click_link 'LOG IN'
+      fill_in 'Email', with: 'bender@gmail.com'
+      fill_in 'Password', with: 'wrong'
+      click_button 'Log in'
+      expect(page).to have_content 'Invalid Email or password.'
+    end
+  end
 end
