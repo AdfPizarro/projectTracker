@@ -107,6 +107,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
+Design by [Gregoire Vella](https://www.behance.net/gregoirevella)
+
 TBA
 
 ## 📝 License
