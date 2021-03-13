@@ -4,4 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :time_logs
+
+  def public_logs
+    self.time_logs.includes(:groups).where.not(groups: { id: nil }).order(created_at: :desc)
+  end
+
+  def private_logs
+    self.time_logs.includes(:groups).where(groups: { id: nil }).order(created_at: :desc)
+  end
+
+
+
 end

@@ -4,12 +4,12 @@ class TimeLogsController < ApplicationController
   # GET /time_logs
   # GET /time_logs.json
   def index
-    @time_logs = current_user.time_logs.includes(:groups).where.not(groups: { id: nil }).order(created_at: :desc)
+    @time_logs = current_user.public_logs
     @total = time_conversion(@time_logs.sum(:minutes).to_i)
   end
 
   def ext_logs
-    @time_logs = current_user.time_logs.includes(:groups).where(groups: { id: nil }).order(created_at: :desc)
+    @time_logs = current_user.private_logs
     @total = @time_logs.sum(:minutes).to_i
   end
 

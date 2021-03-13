@@ -83,9 +83,6 @@ by using capybara you can run it by the followng command
     rspec --format documentation
 ```
 
-### Deployment
-
-TBA
 
 ## Authors
 
