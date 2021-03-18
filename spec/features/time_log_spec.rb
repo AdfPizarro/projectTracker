@@ -41,19 +41,6 @@ describe 'Capybara time logs', type: :feature do
       expect(page).to have_content 'Bender'
     end
 
-    it 'View existing groups' do
-      visit '/groups'
-      expect(page).to have_content 'Fry group'
-    end
-
-    it 'Create a new group (upload image)' do
-      visit 'groups/new'
-      fill_in 'group_name', with: 'Bender group'
-      attach_file('group_image', Rails.root + 'spec/img/bender.jpeg')
-      click_button 'commit'
-      expect(page).to have_content 'Bender group'
-    end
-
     it 'Create a personal log' do
       visit '/time_logs/new'
       fill_in 'time_log_name', with: 'Taking a nap'
@@ -70,6 +57,30 @@ describe 'Capybara time logs', type: :feature do
       click_button 'commit'
       expect(page).to have_content 'Log Created'
     end
+
+    it 'Error message creating a log empty activity' do
+      visit '/time_logs/new'
+      fill_in 'time_log_minutes', with: '120'
+      check 'time_log_groups_1'
+      click_button 'commit'
+      expect(page).to have_content "Name can't be blank"
+    end
+
+    it 'Error message creating a log empty time' do
+      visit '/time_logs/new'
+      check 'time_log_groups_1'
+      click_button 'commit'
+      expect(page).to have_content "Minutes can't be blank"
+    end
+
+    it 'Error message creating a log negative time' do
+      visit '/time_logs/new'
+      fill_in 'time_log_minutes', with: '-10'
+      check 'time_log_groups_1'
+      click_button 'commit'
+      expect(page).to have_content "Minutes must be greater than or equal to 1"
+    end
+
   end
 
   describe 'Login' do
