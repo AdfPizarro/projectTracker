@@ -62,9 +62,5 @@ describe 'Capybara groups', type: :feature do
       click_button 'commit'
       expect(page).to have_content "Image can't be blank"
     end
-
-
   end
-
-
 end

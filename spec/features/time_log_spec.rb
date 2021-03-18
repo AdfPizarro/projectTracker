@@ -78,9 +78,8 @@ describe 'Capybara time logs', type: :feature do
       fill_in 'time_log_minutes', with: '-10'
       check 'time_log_groups_1'
       click_button 'commit'
-      expect(page).to have_content "Minutes must be greater than or equal to 1"
+      expect(page).to have_content 'Minutes must be greater than or equal to 1'
     end
-
   end
 
   describe 'Login' do

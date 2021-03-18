@@ -3,7 +3,7 @@ module TimeLogsHelper
     if !log.groups.empty?
       log.groups.first.image
     else
-      "journal.png"
+      'journal.png'
     end
   end
 end
