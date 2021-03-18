@@ -1,28 +1,21 @@
 class UsersController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: [:splash]
-  # GET /groups
-  # GET /groups.json
+
   def index
     @time_logs = current_user.time_logs
   end
 
-  # GET /groups/1
-  # GET /groups/1.json
   def show; end
 
   def splash; end
 
-  # GET /groups/new
   def new
     @group = Group.new
   end
 
-  # GET /groups/1/edit
   def edit; end
 
-  # POST /groups
-  # POST /groups.json
   def create
     @group = Group.new(group_params)
     @group.creator_id = current_user.id
