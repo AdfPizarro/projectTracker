@@ -37,8 +37,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /groups/1
-  # PATCH/PUT /groups/1.json
   def update
     respond_to do |format|
       if @group.update(group_params)
@@ -51,8 +49,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /groups/1
-  # DELETE /groups/1.json
   def destroy
     @group.destroy
     respond_to do |format|
@@ -63,12 +59,10 @@ class UsersController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_group
     @group = Group.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def group_params
     params.require(:group).permit(:name, :image)
   end
