@@ -1,4 +1,4 @@
-# Group of transactions
+# Project Tracker
 
 ![screenshot](./img/splash.png)
 ![screenshot](./img/profile.png)
