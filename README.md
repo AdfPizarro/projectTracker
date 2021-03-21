@@ -1,4 +1,4 @@
-# Scaffold for social media app with Ruby on Rails
+# Group of transactions
 
 ![screenshot](./img/splash.png)
 ![screenshot](./img/profile.png)
@@ -105,9 +105,3 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 Design by [Gregoire Vella](https://www.behance.net/gregoirevella)
-
-TBA
-
-## 📝 License
-
-TBA
