@@ -1,0 +1,47 @@
+<div class="header">
+  <div class="title_bar">
+    <div class="">
+      <%= link_to image_tag( "back.svg", :class => "menu_icon"), groups_path %>
+    </div>
+    <div class="">
+      <h1 class="page_title">Sign up</h1>
+    </div>
+    <div class="">
+      <%= image_tag "exit.svg", :class => "menu_icon" %>
+    </div>
+
+  </div>
+</div>
+
+<div class="content">
+  <div class="form_container">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Username" %>
+      </div>
+
+     <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password"  %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+
+  </div>
+
+</div>
+
+
+<%= render "devise/shared/links" %>
